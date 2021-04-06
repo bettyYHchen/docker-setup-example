@@ -1,0 +1,35 @@
+cd ~
+mkdir romenext_mysql
+cd romenext_mysql
+
+Step1: Install mysql container
+sudo docker run --name romenextdb -p 3306:3306 -v $(pwd)/conf.d:/etc/mysql/conf.d -v $(pwd)/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=superman -d mysql:8.0.23
+
+	
+Step2: Run mysql container interactively
+
+sudo docker exec -it romenextdb bash
+cd home
+mkdir sql.scripts
+exit
+
+Step3: Copy sql dumps to container
+sudo docker cp mysql_create_romenext_default_users.sql  romenextdb:/home/sql.scripts/mysql_create_romenext_default_users.sql
+
+sudo docker cp mysql_romenextdb_dump.sql  romenextdb:/home/sql.scripts/mysql_romenextdb_dump.sql
+
+sudo docker cp mysql_create_romenext_webgui_users.sql  romenextdb:/home/sql.scripts/mysql_create_romenext_webgui_users.sql
+
+Step4: Get into mysql CLI and load the dump files
+sudo docker exec -it romenextdb bash
+mysql -u root -psuperman
+source mysql_create_romenext_default_users.sql
+source mysql_romenextdb_dump.sql
+source mysql_create_romenext_webgui_users.sql
+exit
+
+The mysql container is running in the background. 
+
+You can stop the container by using the command "sudo docker stop romenextdb", and restart the container by using the command "sudo docker start romenextdb". 
+
+

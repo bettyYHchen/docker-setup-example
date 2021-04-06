@@ -1,0 +1,19 @@
+Step 1: cd into ~/wildfly_docker_workspace
+
+Step 2: Run the build with docker build --tag=jboss/wildfly-romenext .
+
+Step 3: Run the container with docker run -it -p 8080:8080 --name romenext_app_rev3 jboss/wildfly-romenext 
+
+(Comment: 
+you might need to modify the line in the file els-romenext-rev3-web-admin-portal/src/main/webapp/jsps/headers/javascriptHeaders.jsp
+ var apiBaseUrl = "http://<%= session.getAttribute("api_url") %>:8080/api/"; 
+to the following:
+ var apiBaseUrl = "http://{your host ip}:8080/api/"; , where {your host ip} is your machine ip. 
+ 
+ you might need to modify the line in the file els-romenext-rev3-web-portal/src/main/webapp/jsps/headers/javascriptHeaders.jsp
+ var apiBaseUrl = "http://<%= session.getAttribute("api_url") %>:8080/api/"; 
+to the following:
+ var apiBaseUrl = "http://{your host ip}:8080/api/"; , where {your host ip} is your machine ip. 
+  
+	
+
