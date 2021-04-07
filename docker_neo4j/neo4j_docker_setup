@@ -36,7 +36,7 @@ Step 6: Wait around 30 seconds and then open a browser and navigate to "localhos
 
 Step 7: Enable Automatic UUIDs by typing the following commands in neo4j command prompt
     CREATE (:super);
-    
+    CALL apoc.uuid.install('super', {addToExistingNodes: true, uuidProperty: 'sys_uuid'})    yield label, installed, properties, batchComputationResult; 
     
 You can stop the neo4j container by using the command "sudo docker stop my_neo4j", and restart the container by using the command "sudo docker start my_neo4j". Everytime you restart the neo4j container, you need to Enable automatic UUIDs by the following commands in neo4j command prompt:
   CREATE CONSTRAINT ON (n:super) ASSERT n.sys_uuid IS UNIQUE;
