@@ -3,7 +3,11 @@ cd ~
 mkdir romenext_mysql
 cd romenext_mysql
 
-Step 2: Copy the three sql files to the folder romenext_mysql. 
+Step 2: Copy the three sql files to the folder romenext_mysql by running the following commands.
+wget https://github.com/bettyYHchen/docker-setup-example/blob/main/romenextdb_mysql/mysql_create_romenext_default_users.sql
+wget https://github.com/bettyYHchen/docker-setup-example/blob/main/romenextdb_mysql/mysql_create_romenext_webgui_users.sql
+wget https://github.com/bettyYHchen/docker-setup-example/blob/main/romenextdb_mysql/mysql_romenextdb_dump.sql
+
 
 Step 3: Run the following commands
 mkdir conf.d
