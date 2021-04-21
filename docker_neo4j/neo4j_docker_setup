@@ -19,6 +19,10 @@ sudo docker run --rm --volume=$(pwd)/conf:/conf neo4j:3.5.3 dump-config
 Step3: Download the plugins
 Download graph-algorithms-algo-3.5.1.0.jar from (https://github.com/neo4j-contrib/neo4j-graph-algorithms/releases)
 Download apoc-3.5.0.11-all.jar from (https://github.com/neo4j-contrib/neo4j-apoc-procedures/releases)
+For command prompt user, use the following commands.
+cd plugins
+wget -O graph-algorithms-algo-3.5.1.0.jar https://github.com/neo4j-contrib/neo4j-graph-algorithms/releases/download/3.5.1.0/graph-algorithms-algo-3.5.1.0.jar
+wget -O apoc-3.5.0.11-all.jar https://github.com/neo4j-contrib/neo4j-apoc-procedures/releases/download/3.5.0.11/apoc-3.5.0.11-all.jar
 
 Step4: Modify ~/docker_neo4j/conf/neo4j.conf by adding these line:
 dbms.security.procedures.whitelist=algo.*,apoc.*
