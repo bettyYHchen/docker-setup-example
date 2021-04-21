@@ -24,7 +24,8 @@ mkdir data
 
 Step 4: Install mysql container
 sudo docker run --name romenextdb -p 3306:3306 -v $(pwd)/conf.d:/etc/mysql/conf.d -v $(pwd)/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=superman -d mysql:8.0.23
-
+(If you have mysql installed on your local computer port 3306 is occupied, use another port number after -p, for example: 
+  sudo docker run --name romenextdb -p 3307:3306 -v $(pwd)/conf.d:/etc/mysql/conf.d -v $(pwd)/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=superman -d mysql:8.0.23)
 	
 Step 5: Run mysql container interactively
 
