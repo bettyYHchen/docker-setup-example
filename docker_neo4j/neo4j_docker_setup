@@ -10,6 +10,11 @@ mkdir plugins
 
 Step2: Generate the initial config file
 sudo docker run --rm --volume=$(pwd)/conf:/conf neo4j:3.5.3 dump-config 
+(You may encounter permission denied problem. Modify the folder permission to 777 by the following commands:
+   sudo chmod -R 777 conf
+   sudo chmod -R 777 data
+   sudo chmod -R 777 logs
+   sudo chmod -R 777 plugins )
 
 Step3: Download the plugins
 Download graph-algorithms-algo-3.5.1.0.jar from (https://github.com/neo4j-contrib/neo4j-graph-algorithms/releases)
