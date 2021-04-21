@@ -1,0 +1,15 @@
+This is the newer update because I have uploaded the custom wildfly romenext app image to docker hub. There is no need to rebuild the image as describe in the folder "wildfly_docker_workspace". Use these instructions instead of those in "wildfly_docker_workspace".
+
+Step 1:
+Login docker hub from your terminal: 
+
+sudo docker login --username emptylot --password superman009725
+
+Step 2: sudo docker pull emptylot/romenext_rev3:latest
+
+Step 3: sudo docker run -it -p 8080:8080 --name romenext_app_rev3 emptylot/romenext_rev3:latest
+
+Step 4: sudo docker inspect romenext_app_rev3 to get the ip address in Networks { "IPAddress"}.
+
+Step 5: Navigate to browser and access the romenext application using:
+{your ip address}:8080/admin or {your ip address}:8080/webguiportal
