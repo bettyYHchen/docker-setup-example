@@ -9,7 +9,8 @@ Step 2: sudo docker pull emptylot/romenext_rev3:latest
 
 Step 3: sudo docker run -it -p 8080:8080 --name romenext_app_rev3 emptylot/romenext_rev3:latest
 
-Step 4: sudo docker inspect romenext_app_rev3 to get the ip address in Networks { "IPAddress"}.
+Step 4: sudo docker inspect romenext_app_rev3 
+(This command is to get the ip address of the container. You can find the container ip in Networks { "IPAddress"}.)
 
 Step 5: Navigate to browser and access the romenext application using:
 {your ip address}:8080/admin or {your ip address}:8080/webguiportal
