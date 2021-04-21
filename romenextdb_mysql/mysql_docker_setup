@@ -42,6 +42,7 @@ sudo docker cp mysql_create_romenext_webgui_users.sql  romenextdb:/home/sql.scri
 
 Step 7: Get into mysql CLI and load the dump files
 sudo docker exec -it romenextdb bash
+cd /home/sql.scripts/ (go to the folder containing the dump files)
 mysql -u root -psuperman
 source mysql_create_romenext_default_users.sql
 source mysql_romenextdb_dump.sql
