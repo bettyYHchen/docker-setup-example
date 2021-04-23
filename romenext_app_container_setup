@@ -14,3 +14,24 @@ Step 4: sudo docker inspect romenext_app_rev3
 
 Step 5: Navigate to browser and access the romenext application using:
 {your ip address}:8080/admin or {your ip address}:8080/webguiportal
+
+
+Updates:
+
+There might be problem to use container ip in browser for Windows. The application can only get the container ip dynamically from session data.
+I might need your machine ip to rebuild the image for it to work on your machine. In this case, use the following instructions after Step 2.
+
+Step 3: sudo docker run -it -p 8080:8080 --name romenext_app_rev3 emptylot/romenext_rev3:yourname
+
+Step 4: Get your machine ip address (IPv4 Address (check by ipconfig in Windows CMD))
+
+Step 5: Navigate to browser and access the romenext application using:
+{your machine ip address}:8080/admin or {your machine ip address}:8080/webguiportal
+
+Step 6: The default username and password for {your machine ip address}:8080/admin is:
+username: ra4
+password: superman4
+
+You can set up the user credentials to login {your machine ip address}:8080/webguiportal in {your machine ip address}:8080/admin. 
+
+
