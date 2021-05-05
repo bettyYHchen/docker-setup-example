@@ -1,0 +1,45 @@
+Please start with an empty docker_neo4j4.2 folder. Don't directly use the existing folders and files here (these files just provide as a demo). 
+Step1: Run the following commands in terminal
+cd ~
+mkdir docker_neo4j
+cd docker_neo4j
+mkdir data
+mkdir logs
+mkdir plugins
+(You may encounter permission denied problem. Modify the folder permission to 777 by the following commands:
+   sudo chmod -R 777 conf
+   sudo chmod -R 777 data
+   sudo chmod -R 777 logs
+   sudo chmod -R 777 plugins )
+
+Step2: Download the plugins
+Download apoc-4.2.0.1-all.jar from (https://github.com/neo4j-contrib/neo4j-apoc-procedures/releases)
+For command prompt user, use the following commands.
+cd plugins
+wget -O apoc-4.2.0.1-all.jar https://github.com/neo4j-contrib/neo4j-apoc-procedures/releases/download/4.2.0.1/apoc-4.2.0.1-all.jar
+
+
+Step3: Pull and run the neo4j container
+
+sudo docker run -d \
+    --publish=7474:7474 \
+    --publish=7687:7687 \
+    --volume=$(pwd)/data:/data \
+    --volume=$(pwd)/logs:/logs \
+    --volume=$(pwd)/plugins:/plugins \
+    --env NEO4J_AUTH=neo4j/superman \
+    --env NEO4J_dbms_security_procedures_whitelist=apoc.* \
+    --env NEO4J_dbms_security_procedures_unrestricted=apoc.* \
+    --env NEO4J_apoc_uuid_enabled=true \
+    --name my_neo4j4.2 neo4j:4.2    
+
+Step 4: Wait around 30 seconds and then open a browser and navigate to "localhost:7474". Connect to neo4j using username = neo4j and password = superman.
+
+Step 5: Enable Automatic UUIDs by typing the following commands in neo4j command prompt
+    CREATE (:super);
+    CREATE CONSTRAINT ON (n:super) ASSERT n.sys_uuid IS UNIQUE;
+    CALL apoc.uuid.install('super', {addToExistingNodes: true, uuidProperty: 'sys_uuid'})    yield label, installed, properties, batchComputationResult; 
+    
+You can stop the neo4j container by using the command "sudo docker stop my_neo4j4.2", and restart the container by using the command "sudo docker start my_neo4j4.2". Everytime you restart the neo4j container, you may need to Enable automatic UUIDs by the following commands in neo4j command prompt:
+  CREATE CONSTRAINT ON (n:super) ASSERT n.sys_uuid IS UNIQUE;
+  CALL apoc.uuid.install('super', {addToExistingNodes: true, uuidProperty: 'sys_uuid'}) yield label, installed, properties, batchComputationResult; 
