@@ -20,6 +20,8 @@ wget -O apoc-4.2.0.1-all.jar https://github.com/neo4j-contrib/neo4j-apoc-procedu
 
 Step3: Pull and run the neo4j container
 
+Before you perform the docker run command. Please make sure you have stopped the neo4j version 3.5 container by using the command "docker stop my_neo4j"
+
 sudo docker run -d \
     --publish=7474:7474 \
     --publish=7687:7687 \
