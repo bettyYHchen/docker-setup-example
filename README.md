@@ -12,3 +12,4 @@ If you are using a linux os, you can pull the image using "docker pull emptylot/
 
 
 After setting up the mysql container, the file structure would be similar to those shown in below picture. Make sure the docker run command is performed in the folder as shown. 
+![alt text](https://github.com/bettyYHchen/docker-setup-example/blob/main/docker_mysql%20setup.PNG)
