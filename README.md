@@ -10,3 +10,5 @@ The docker images would be updated in docker hub. Use the tag "yourname4.2". For
 
 If you are using a linux os, you can pull the image using "docker pull emptylot/romenext_rev3:dynamic_ip4.2" to get romenext work with neo4j 4.2. Use the ip address of the romenext container browse to the application (You can obtain the ip of the container by using the command "docker inspect romenext_app_rev3"). 
 
+
+After setting up the mysql container, the file structure would be similar to those shown in below picture. Make sure the docker run command is performed in the folder as shown. 
