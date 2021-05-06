@@ -2,7 +2,7 @@ Please start with an empty docker_neo4j4.2 folder. Don't directly use the existi
 Step1: Run the following commands in terminal
 cd ~
 mkdir docker_neo4j4.2
-cd docker_neo4j
+cd docker_neo4j4.2
 mkdir data
 mkdir logs
 mkdir plugins
