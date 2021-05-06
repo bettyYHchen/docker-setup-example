@@ -7,3 +7,6 @@ Updates in May:
 I have updated romenext to work with Neo4j 4.2. To set up a neo4j 4.2 container with configurations that work with romenext, please take a look at the folder docker_neo4j_4.2. The set up of the mysql container remains unchanged. 
 
 The docker images would be updated in docker hub. Use the tag "yourname4.2". For example, docker pull emptylot/romenext_rev3:betty4.2 will pull an image use betty's ip and it's compatiable with neo4j 4.2. 
+
+If you are using a linux os, you can pull the image using "docker pull emptylot/romenext_rev3:dynamic_ip4.2" to get romenext work with neo4j 4.2. Use the ip address of the romenext container browse to the application (You can obtain the ip of the container by using the command "docker inspect romenext_app_rev3"). 
+
